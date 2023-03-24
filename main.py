@@ -6,6 +6,7 @@ from getpass import getpass
 from collections import defaultdict
 from tqdm import tqdm
 
+
 ENDPOINT_URL = "https://api.github.com/repos/"
 
 
@@ -41,7 +42,6 @@ def setup_arguments(args):
     
     return cache_dir, access_token_file, repos, username
     
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
