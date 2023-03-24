@@ -69,8 +69,8 @@ if __name__ == "__main__":
         repo_dir = os.path.join(cache_dir, repo_name)
         
         # Step 1. Count commits
-        # Get the number of commits from Cho
-        results = os.popen(f"cd {repo_dir} && git shortlog -s -n --all --no-merges | grep Cho").readlines()
+        # Get the number of commits from user
+        results = os.popen(f"cd {repo_dir} && git shortlog -s -n --all --no-merges | grep {username}").readlines()
         if len(results) > 0:
             total_commits = sum([int(result.split()[0]) for result in results])
         else:
@@ -78,7 +78,7 @@ if __name__ == "__main__":
             
         result_dict[repo_name]["commits"] = total_commits
         
-        # Step 2. Count PRs opened by Cho
+        # Step 2. Count PRs opened by user
         initial_trial = os.popen(
             f"cd {repo_dir} && "
             f"gh auth login --with-token < {access_token_file} && "
@@ -95,7 +95,7 @@ if __name__ == "__main__":
             my_prs = []
         result_dict[repo_name]["opened_prs"] = len(my_prs)
         
-        # Step 3. Count commented PRs by Cho
+        # Step 3. Count commented PRs by user
         initial_trial = os.popen(
             f"cd {repo_dir} && "
             f"gh auth login --with-token < {access_token_file} && "
