@@ -7,9 +7,6 @@ from collections import defaultdict
 from tqdm import tqdm
 
 
-ENDPOINT_URL = "https://api.github.com/repos/"
-
-
 def setup_arguments(args):
     if not os.path.exists(args.cache_dir):    
         os.makedirs(args.cache_dir, exist_ok=True)
