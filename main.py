@@ -45,8 +45,8 @@ def setup_arguments(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--username", "-u", type=str, required=True, help="GitHub username.")
-    parser.add_argument("--search_limit", type=int, default=10000, help="Limit the number of search results.")
+    parser.add_argument("--username", "-u", type=str, required=True, help="GitHub username to check contribution.")
+    parser.add_argument("--search_limit", type=int, default=10000, help="Limit the number of search results. (default: 10000)")
     parser.add_argument("--cache_dir", type=str, default=".cache/repos/", help="Path to cache directory where repositories are cloned. (default: .cache/repos/)")
     parser.add_argument("--repository_info_path", type=str, default="data/repositories.json", help="Path to repository info file. (default: data/repositories.json)")
     parser.add_argument("--access_token_file", type=str, default="data/token.txt", help="Path to Github access token file. (default: data/token.txt)")
